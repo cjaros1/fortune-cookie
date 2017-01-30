@@ -27,12 +27,15 @@ def getRandomFortune():
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        fortune = getRandomFortune()
+        fortune = "<strong>"+ getRandomFortune() +"</strong>"
         header="<h1>Fortune Cookie</h1>"
         fortune_paragraph="<p>Your fortune: "+fortune+"</p>"
         lucky_number= random.randint(1,100)
-        number_paragraph="<p>Your lucky number: " + str(lucky_number)+"</p>"
-        self.response.write(header + fortune_paragraph + number_paragraph)
+        number_paragraph="<p>Your lucky number: <strong>" + str(lucky_number)+"</strong></p>"
+		
+        cookie_again_button="<button type='button'><a href='.'>Another Cookie PLZ!!!</a></button>"
+		
+        self.response.write(header + fortune_paragraph + number_paragraph + cookie_again_button)
 
 		
 
